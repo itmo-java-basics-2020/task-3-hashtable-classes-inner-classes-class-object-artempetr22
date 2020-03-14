@@ -84,7 +84,7 @@ public class HashTable {
         if (isIndexEmpty(index)) {
             return null;
         }
-        // Element is found
+        // Element is foundd
         Object previous = this.elements[index].value;
         if (this.elements[(index + this.step) % this.capacity] == null) {
             this.elements[index].key = null;
