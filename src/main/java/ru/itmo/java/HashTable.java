@@ -63,7 +63,7 @@ public class HashTable {
 
     Object put(Object key, Object value) {
         int index = this.findIndex(key);
-        // Element not found - add it
+        // Element not found
         if (this.isIndexEmpty(index)) {
             if (this.elements[index] == null)
                 ++this.notNullSize;
@@ -72,7 +72,7 @@ public class HashTable {
             this.ensureCapacity();
             return null;
         }
-        // Element is found - change value
+        // Element is found
         Object previous = this.elements[index].value;
         this.elements[index].value = value;
         return previous;
@@ -80,11 +80,11 @@ public class HashTable {
 
     Object remove(Object key) {
         int index = this.findIndex(key);
-        // Element not found - return null
+        // Element not found
         if (isIndexEmpty(index)) {
             return null;
         }
-        // Element is found - delete it
+        // Element is found
         Object previous = this.elements[index].value;
         if (this.elements[(index + this.step) % this.capacity] == null) {
             this.elements[index].key = null;
